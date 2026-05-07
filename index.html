@@ -123,6 +123,16 @@
       background: var(--blue-deep);
     }
 
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+    }
+
     .hero-bg {
       position: absolute;
       inset: 0;
@@ -143,7 +153,65 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 680px;
+    }
+
+    /* HERO STAT CARDS */
+    .hero-stats-panel {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      backdrop-filter: blur(10px);
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .stat-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateX(-4px);
+    }
+    .stat-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .stat-card-icon.blue { background: rgba(30,86,176,0.5); }
+    .stat-card-icon.gold { background: rgba(245,166,35,0.2); }
+    .stat-card-icon.green { background: rgba(34,197,94,0.15); }
+    .stat-card-body {}
+    .stat-card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+    }
+    .stat-card-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+    .stat-card-sublabel {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 2px;
     }
 
     .hero-badge {
@@ -881,23 +949,21 @@
     @media (max-width: 900px) {
       .nav-links { display: none; }
 
-      /* Hero — single column, no absolute stats */
+      /* Hero — stack to single column */
       .hero {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
         padding: 100px 5% 60px;
         min-height: 100vh;
+        align-items: flex-start;
       }
-      .hero-content { max-width: 100%; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
       .hero h1 { font-size: clamp(32px, 8vw, 52px); letter-spacing: -1px; }
       .hero p { font-size: 16px; max-width: 100%; }
-      .hero-stats {
-        margin-top: 40px;
-        justify-content: flex-start;
-        gap: 32px;
-      }
-      .stat-num { font-size: 28px; }
+      .hero-stats-panel { flex-direction: row; flex-wrap: wrap; gap: 12px; }
+      .stat-card { flex: 1; min-width: 140px; }
+      .stat-card:hover { transform: translateY(-2px); }
 
       /* About */
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -937,9 +1003,9 @@
         justify-content: center;
         padding: 14px 20px;
       }
-      .hero-stats { gap: 24px; flex-wrap: wrap; }
-      .stat-num { font-size: 26px; }
-      .stat-label { font-size: 11px; }
+      .hero-stats-panel { flex-direction: column; gap: 12px; }
+      .stat-card { min-width: unset; }
+      .stat-card-num { font-size: 26px; }
 
       /* Nav */
       .logo-text { font-size: 17px; }
@@ -1001,27 +1067,43 @@
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
-    <div class="hero-content">
-      <div class="hero-badge">🇳🇬 Nigerian Technology Company</div>
-      <h1>Building digital solutions that <span class="accent">transform lives</span> across Nigeria</h1>
-      <p>Otubusin Ademuyiwa Solutions Ltd builds purposeful digital products that solve real problems — from transportation safety to education and beyond.</p>
-      <div class="hero-buttons">
-        <a href="#products" class="btn-primary">Explore Our Products →</a>
-        <a href="#contact" class="btn-secondary">Work With Us</a>
+    <div class="hero-inner">
+      <!-- Left: content -->
+      <div class="hero-content">
+        <div class="hero-badge">🇳🇬 Nigerian Technology Company</div>
+        <h1>Building digital solutions that <span class="accent">transform lives</span> across Nigeria</h1>
+        <p>Otubusin Ademuyiwa Solutions Ltd builds purposeful digital products that solve real problems — from transportation safety to education and beyond.</p>
+        <div class="hero-buttons">
+          <a href="#products" class="btn-primary">Explore Our Products →</a>
+          <a href="#contact" class="btn-secondary">Work With Us</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Products</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Live Now</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">NG</div>
-        <div class="stat-label">Based</div>
+      <!-- Right: stat cards -->
+      <div class="hero-stats-panel">
+        <div class="stat-card">
+          <div class="stat-card-icon blue">🚀</div>
+          <div class="stat-card-body">
+            <div class="stat-card-num">4</div>
+            <div class="stat-card-label">Digital Products</div>
+            <div class="stat-card-sublabel">Across multiple industries</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon green">✅</div>
+          <div class="stat-card-body">
+            <div class="stat-card-num">1</div>
+            <div class="stat-card-label">Live Now</div>
+            <div class="stat-card-sublabel">SafeRide Ondo — active</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon gold">🇳🇬</div>
+          <div class="stat-card-body">
+            <div class="stat-card-num">NG</div>
+            <div class="stat-card-label">Nigeria Based</div>
+            <div class="stat-card-sublabel">Ondo State, Nigeria</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1212,28 +1294,42 @@
       </div>
       <div class="contact-form">
         <h3>Send us a message</h3>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" placeholder="Your full name" />
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="your@email.com" />
-        </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <select>
-            <option>SafeRide Ondo enquiry</option>
-            <option>Partnership opportunity</option>
-            <option>Product feedback</option>
-            <option>General enquiry</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea placeholder="Tell us how we can help you..."></textarea>
-        </div>
-        <button class="form-submit" onclick="handleSubmit(event)">Send Message →</button>
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="+234 800 000 0000" />
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select name="subject">
+              <option>SafeRide Ondo enquiry</option>
+              <option>Partnership opportunity</option>
+              <option>Product feedback</option>
+              <option>General enquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell us how we can help you..." required></textarea>
+          </div>
+          <input type="hidden" name="_replyto" value="info@oassolutions.com.ng" />
+          <input type="hidden" name="_subject" value="New message from oassolutions.com.ng" />
+          <button type="submit" class="form-submit" id="submit-btn">Send Message →</button>
+          <div id="form-success" style="display:none;margin-top:16px;padding:14px;background:#E8FAF0;border-radius:10px;color:#14532D;font-size:14px;font-weight:500;text-align:center;">
+            ✅ Message sent! We'll get back to you within 24 hours.
+          </div>
+          <div id="form-error" style="display:none;margin-top:16px;padding:14px;background:#FEE2E2;border-radius:10px;color:#7F1D1D;font-size:14px;font-weight:500;text-align:center;">
+            ❌ Something went wrong. Please email us directly at info@oassolutions.com.ng
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -1268,15 +1364,15 @@
           <li><a href="#about">About OAS Ltd</a></li>
           <li><a href="#why">Why OAS</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Otubusin Ademuyiwa Solutions Ltd. All rights reserved. RC No. RC7765644</p>
       <div style="display:flex;gap:24px;">
-        <a href="#privacy">Privacy Policy</a>
-        <a href="#terms">Terms of Use</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
       </div>
     </div>
   </footer>
@@ -1298,16 +1394,48 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    // Form submit handler
-    function handleSubmit(e) {
-      e.preventDefault();
-      const btn = e.target;
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#22C55E';
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '';
-      }, 3000);
+    // Contact form — Formspree async submission
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Update button state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        successMsg.style.display = 'none';
+        errorMsg.style.display = 'none';
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            // Success
+            form.reset();
+            successMsg.style.display = 'block';
+            submitBtn.textContent = 'Message Sent ✓';
+            submitBtn.style.background = '#22C55E';
+            submitBtn.style.opacity = '1';
+          } else {
+            throw new Error('Server error');
+          }
+        } catch (error) {
+          // Error
+          errorMsg.style.display = 'block';
+          submitBtn.textContent = 'Send Message →';
+          submitBtn.disabled = false;
+          submitBtn.style.opacity = '1';
+        }
+      });
     }
   </script>
 
