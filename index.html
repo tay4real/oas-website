@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OAS Ltd — Building Digital Solutions That Transform Lives</title>
+  <meta name="description" content="Otubusin Ademuyiwa Solutions Ltd (OAS Ltd) builds digital products solving real Nigerian problems across transportation, education, real estate and more." />
+  <meta property="og:title" content="OAS Ltd — Building Digital Solutions That Transform Lives" />
+  <meta property="og:description" content="Nigerian technology company building digital products that transform lives across Africa." />
+  <meta property="og:url" content="https://oassolutions.com.ng" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep: #0A1628;
+      --blue-mid: #1A3A6B;
+      --blue-brand: #1E56B0;
+      --blue-light: #3B82F6;
+      --blue-pale: #EBF2FF;
+      --white: #FFFFFF;
+      --off-white: #F8FAFF;
+      --gray: #6B7280;
+      --gray-light: #E5EAF2;
+      --gold: #F5A623;
+      --text: #0A1628;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(30,86,176,0.08);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(10,22,40,0.08); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      background: var(--blue-brand);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: white;
+      letter-spacing: -1px;
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--blue-deep);
+      letter-spacing: -0.3px;
+    }
+    .logo-text span { color: var(--blue-brand); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue-brand); }
+
+    .nav-cta {
+      background: var(--blue-brand);
+      color: white !important;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--blue-mid) !important;
+      transform: translateY(-1px);
+      color: white !important;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+      background: var(--blue-deep);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(30,86,176,0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(59,130,246,0.15) 0%, transparent 60%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30,86,176,0.3);
+      border: 1px solid rgba(59,130,246,0.3);
+      color: #93C5FD;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero h1 .accent {
+      color: var(--gold);
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 40px;
+      font-weight: 300;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--blue-light);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: white;
+      color: var(--blue-brand);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      z-index: 2;
+      margin-top: 48px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION COMMON */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--blue-brand);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--blue-brand);
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--blue-deep);
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 560px;
+      font-weight: 300;
+    }
+
+    /* ABOUT */
+    .about { background: var(--off-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card-main {
+      background: var(--blue-deep);
+      border-radius: 20px;
+      padding: 40px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card-main::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(30,86,176,0.6), transparent 70%);
+    }
+    .about-card-main h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .about-card-main p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      font-weight: 300;
+      position: relative;
+    }
+    .about-card-float {
+      display: inline-block;
+      margin-top: 20px;
+      background: var(--gold);
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 8px 32px rgba(245,166,35,0.3);
+    }
+    .about-card-float .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--blue-deep);
+      line-height: 1;
+    }
+    .about-card-float .lbl {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(10,22,40,0.7);
+      margin-top: 2px;
+    }
+
+    .about-text { padding-left: 20px; }
+    .about-text p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .values-list {
+      list-style: none;
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .values-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 400;
+    }
+    .value-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--blue-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .value-text strong {
+      display: block;
+      font-weight: 600;
+      color: var(--blue-deep);
+      margin-bottom: 2px;
+    }
+    .value-text span {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    /* PRODUCTS */
+    .products { background: white; }
+    .products-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    /* Products grid — mobile first */
+    .products-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product-card {
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      width: 100%;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(10,22,40,0.12);
+    }
+
+    .product-card.live {
+      background: var(--blue-deep);
+      color: white;
+    }
+    .product-card.live::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 300px;
+      height: 100%;
+      background: radial-gradient(ellipse at right, rgba(30,86,176,0.5), transparent 70%);
+    }
+
+    .product-card.coming {
+      background: var(--off-white);
+      border: 1px solid var(--gray-light);
+    }
+
+    /* Desktop — switch to grid layout */
+    @media (min-width: 768px) {
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      .product-card.live {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .product-card.renteasy {
+        grid-column: span 2;
+      }
+    }
+
+    .product-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .status-live {
+      background: rgba(34,197,94,0.15);
+      color: #22C55E;
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+    .status-live::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #22C55E;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .status-soon {
+      background: rgba(245,166,35,0.15);
+      color: var(--gold);
+      border: 1px solid rgba(245,166,35,0.3);
+    }
+
+    .product-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .product-card.live .product-icon { font-size: 64px; }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: inherit;
+    }
+    .product-card.coming .product-name { color: var(--blue-deep); font-size: 22px; }
+
+    .product-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .product-card.live .product-desc { color: rgba(255,255,255,0.65); }
+    .product-card.coming .product-desc { color: var(--gray); font-size: 14px; }
+
+    .product-features {
+      list-style: none;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .product-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+    }
+    .product-features li::before {
+      content: '✓';
+      width: 20px;
+      height: 20px;
+      background: rgba(34,197,94,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #22C55E;
+      flex-shrink: 0;
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue-light);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .product-link:hover { gap: 12px; }
+
+    .product-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+    }
+    .phone-mockup {
+      width: 180px;
+      height: 320px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 16px;
+      gap: 10px;
+      backdrop-filter: blur(10px);
+    }
+    .mock-bar { width: 60%; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; }
+    .mock-map {
+      width: 100%;
+      flex: 1;
+      background: rgba(30,86,176,0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .mock-btn {
+      width: 100%;
+      height: 36px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: white;
+      font-weight: 600;
+    }
+
+    /* WHY OAS */
+    .why { background: var(--blue-deep); color: white; }
+    .why .section-title { color: white; }
+    .why .section-subtitle { color: rgba(255,255,255,0.6); }
+    .why .section-label { color: var(--gold); }
+    .why .section-label::before { background: var(--gold); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 60px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 32px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(59,130,246,0.3);
+    }
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(30,86,176,0.4);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .why-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+    }
+    .why-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* CONTACT */
+    .contact { background: var(--off-white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 60px;
+    }
+    .contact-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 16px;
+    }
+    .contact-info p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--blue-pale);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .contact-detail-text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .contact-detail-text a,
+    .contact-detail-text span {
+      font-size: 15px;
+      color: var(--blue-brand);
+      text-decoration: none;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .contact-form {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 4px 40px rgba(10,22,40,0.06);
+    }
+    .contact-form h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--blue-deep);
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--gray-light);
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--blue-brand);
+      box-shadow: 0 0 0 3px rgba(30,86,176,0.08);
+      background: white;
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--blue-brand);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .form-submit:hover {
+      background: var(--blue-mid);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(30,86,176,0.25);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--blue-deep);
+      color: rgba(255,255,255,0.6);
+      padding: 60px 5% 32px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 16px;
+      font-weight: 300;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; }
+    .footer-bottom a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    .footer-bottom a:hover { color: white; }
+
+    /* SCROLL ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE — TABLET */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+
+      /* Hero — single column, no absolute stats */
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 100px 5% 60px;
+        min-height: 100vh;
+      }
+      .hero-content { max-width: 100%; }
+      .hero h1 { font-size: clamp(32px, 8vw, 52px); letter-spacing: -1px; }
+      .hero p { font-size: 16px; max-width: 100%; }
+      .hero-stats {
+        margin-top: 40px;
+        justify-content: flex-start;
+        gap: 32px;
+      }
+      .stat-num { font-size: 28px; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-text { padding-left: 0; }
+
+      /* Products — hide phone mockup on tablet */
+      .product-visual { display: none; }
+      .product-card.live {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+
+      /* Why grid */
+      .why-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+      /* Contact */
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: span 2; }
+
+      /* Section padding */
+      section { padding: 70px 5%; }
+    }
+
+    /* RESPONSIVE — MOBILE */
+    @media (max-width: 600px) {
+      /* Hero */
+      .hero { padding: 90px 5% 50px; }
+      .hero h1 { font-size: clamp(28px, 9vw, 40px); }
+      .hero p { font-size: 15px; }
+      .hero-badge { font-size: 12px; padding: 5px 12px; }
+      .hero-buttons { flex-direction: column; gap: 12px; }
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 20px;
+      }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .stat-num { font-size: 26px; }
+      .stat-label { font-size: 11px; }
+
+      /* Nav */
+      .logo-text { font-size: 17px; }
+
+      /* Section titles */
+      .section-title { font-size: clamp(26px, 7vw, 36px); }
+
+      /* About */
+      .about-card-main { padding: 28px; }
+      .about-card-main h3 { font-size: 22px; }
+
+      /* Products */
+      .products-header { flex-direction: column; align-items: flex-start; }
+      .product-card { padding: 24px; }
+      .product-name { font-size: 20px !important; }
+      .product-desc { font-size: 14px; }
+      .product-features li { font-size: 13px; }
+
+      /* Why */
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card { padding: 24px; }
+
+      /* Contact */
+      .contact-form { padding: 24px; }
+      .contact-info h3 { font-size: 22px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .footer-bottom p { font-size: 12px; }
+
+      /* Section padding */
+      section { padding: 60px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">
+      <div class="logo-mark">OAS</div>
+      <span class="logo-text">OAS <span>Ltd</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#why">Why OAS</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">🇳🇬 Nigerian Technology Company</div>
+      <h1>Building digital solutions that <span class="accent">transform lives</span> across Nigeria</h1>
+      <p>Otubusin Ademuyiwa Solutions Ltd builds purposeful digital products that solve real problems — from transportation safety to education and beyond.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn-primary">Explore Our Products →</a>
+        <a href="#contact" class="btn-secondary">Work With Us</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Live Now</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">NG</div>
+        <div class="stat-label">Based</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-label">Who We Are</div>
+    <h2 class="section-title">Technology built for<br>the Nigerian reality</h2>
+    <div class="about-grid reveal">
+      <div class="about-visual">
+        <div class="about-card-main">
+          <h3>OAS Ltd</h3>
+          <p>Otubusin Ademuyiwa Solutions Ltd is a registered Nigerian technology company focused on building digital products that address real challenges facing individuals, students, businesses, and communities across Nigeria.</p>
+          <div class="about-card-float">
+            <div class="num">CAC</div>
+            <div class="lbl">Registered</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>We believe technology should solve problems that matter. Every product we build starts with a deep understanding of Nigerian users — their environment, their challenges, and the solutions that will genuinely improve their lives.</p>
+        <p>From verified motorcycle-taxi safety in Ondo State to AI-powered study tools for Nigerian students, our products are built with precision, care, and a commitment to lasting impact.</p>
+        <ul class="values-list">
+          <li>
+            <div class="value-icon">🎯</div>
+            <div class="value-text">
+              <strong>Problem-First Thinking</strong>
+              <span>We build products that address real, validated Nigerian challenges</span>
+            </div>
+          </li>
+          <li>
+            <div class="value-icon">🔒</div>
+            <div class="value-text">
+              <strong>Security & Trust</strong>
+              <span>Every product is built with user safety and data protection at its core</span>
+            </div>
+          </li>
+          <li>
+            <div class="value-icon">🚀</div>
+            <div class="value-text">
+              <strong>Built to Scale</strong>
+              <span>Products designed to grow from Ondo State to all of Nigeria and beyond</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="products-header">
+      <div>
+        <div class="section-label">Our Products</div>
+        <h2 class="section-title">Digital solutions<br>across industries</h2>
+      </div>
+      <p class="section-subtitle">Each product targets a specific gap in the Nigerian market, built with the user's real-world context in mind.</p>
+    </div>
+
+    <div class="products-grid reveal">
+
+      <!-- SafeRide — LIVE -->
+      <div class="product-card live">
+        <div>
+          <div class="product-status status-live">Live</div>
+          <span class="product-icon">🏍️</span>
+          <h3 class="product-name">SafeRide Ondo</h3>
+          <p class="product-desc">A verified motorcycle-taxi booking platform for Ondo State. Every rider is NIN-verified and background-checked. Passengers get real-time GPS tracking, one-tap SOS emergency alerts, and automatic cashless payments.</p>
+          <ul class="product-features">
+            <li>NIN verification & police background checks for all riders</li>
+            <li>Real-time GPS tracking with family sharing</li>
+            <li>One-tap SOS with automatic emergency alerts</li>
+            <li>Automatic cashless settlement — riders paid daily</li>
+          </ul>
+          <a href="#contact" class="product-link">Learn more →</a>
+        </div>
+        <div class="product-visual">
+          <div class="phone-mockup">
+            <div class="mock-bar"></div>
+            <div class="mock-map">🗺️</div>
+            <div class="mock-btn">Book a Verified Rider</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Study Companion -->
+      <div class="product-card coming">
+        <div class="product-status status-soon">Coming Soon</div>
+        <span class="product-icon">📚</span>
+        <h3 class="product-name">Study Companion</h3>
+        <p class="product-desc">An AI-enabled mobile app helping Nigerian students study smarter and prepare effectively for exams. Personalised study plans, past question analysis, and intelligent revision tools.</p>
+      </div>
+
+      <!-- School Management -->
+      <div class="product-card coming">
+        <div class="product-status status-soon">Coming Soon</div>
+        <span class="product-icon">🏫</span>
+        <h3 class="product-name">School Manager</h3>
+        <p class="product-desc">A complete digital management platform for Nigerian schools — student records, fee collection, attendance, results, and communication between schools and parents.</p>
+      </div>
+
+      <!-- Rental Platform -->
+      <div class="product-card coming renteasy">
+        <div class="product-status status-soon">Coming Soon</div>
+        <span class="product-icon">🏠</span>
+        <h3 class="product-name">RentEasy Nigeria</h3>
+        <p class="product-desc">Connecting landlords and tenants across Nigeria — search, verify, and rent houses, shops, and commercial spaces with confidence. Verified listings, transparent pricing, and secure digital agreements.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY OAS -->
+  <section class="why" id="why">
+    <div class="section-label">Why OAS Ltd</div>
+    <h2 class="section-title">Built by Nigerians,<br>for Nigerians</h2>
+    <p class="section-subtitle">We understand the Nigerian context because we live it. Our products are designed for real infrastructure, real users, and real problems.</p>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon">🇳🇬</div>
+        <h3>Nigerian Context First</h3>
+        <p>Every product decision considers Nigerian infrastructure, internet connectivity, payment preferences, and regulatory environment. No copy-paste solutions.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔐</div>
+        <h3>Security at the Core</h3>
+        <p>From NIN verification for SafeRide riders to data encryption across all platforms, security is built into every product from day one — not added later.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📱</div>
+        <h3>Mobile-First Design</h3>
+        <p>All OAS products are designed mobile-first, reflecting how Nigerians actually access the internet — on smartphones, often on variable network conditions.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💳</div>
+        <h3>Seamless Payments</h3>
+        <p>Deep integration with Nigerian payment infrastructure — Paystack, bank transfers, USSD — ensuring money moves smoothly for every user regardless of their bank.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📈</div>
+        <h3>Built to Scale</h3>
+        <p>Products start focused — SafeRide launches in Ondo State — then expand systematically across Nigeria as traction is proven. No overreach before readiness.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Government & Community</h3>
+        <p>We build with government partnerships in mind. SafeRide works with Ondo State security agencies. Our products strengthen communities, not disrupt them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's work together</h2>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <h3>Otubusin Ademuyiwa Solutions Ltd</h3>
+        <p>Whether you're interested in SafeRide Ondo, want to partner with us, have a business idea, or want to discuss how our upcoming products can serve your needs — we'd love to hear from you.</p>
+        <div class="contact-detail">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-detail-text">
+            <strong>Email</strong>
+            <a href="mailto:info@oassolutions.com.ng">info@oassolutions.com.ng</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📞</div>
+          <div class="contact-detail-text">
+            <strong>Phone</strong>
+            <a href="tel:+2348060031582">+234 806 003 1582</a>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail-text">
+            <strong>Address</strong>
+            <span>4, Samuel Aderinkoye Lane, Off Abusoro Road,<br>Ijoka, Akure, Ondo State, Nigeria</span>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-detail-text">
+            <strong>Website</strong>
+            <a href="https://oassolutions.com.ng">oassolutions.com.ng</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send us a message</h3>
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" />
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>SafeRide Ondo enquiry</option>
+            <option>Partnership opportunity</option>
+            <option>Product feedback</option>
+            <option>General enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us how we can help you..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(event)">Send Message →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="text-decoration:none;">
+          <div class="logo-mark">OAS</div>
+          <span class="logo-text" style="color:white;">OAS <span>Ltd</span></span>
+        </a>
+        <p>Building digital solutions that transform lives across Nigeria. Registered with the Corporate Affairs Commission (CAC), Nigeria. RC No. RC7765644</p>
+        <p style="margin-top:12px;font-size:13px;">
+          📍 4, Samuel Aderinkoye Lane, Off Abusoro Road,<br>
+          Ijoka, Akure, Ondo State, Nigeria.<br>
+          📞 <a href="tel:+2348060031582" style="color:rgba(255,255,255,0.5);text-decoration:none;">+234 806 003 1582</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">SafeRide Ondo</a></li>
+          <li><a href="#products">Study Companion</a></li>
+          <li><a href="#products">School Manager</a></li>
+          <li><a href="#products">RentEasy Nigeria</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About OAS Ltd</a></li>
+          <li><a href="#why">Why OAS</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Otubusin Ademuyiwa Solutions Ltd. All rights reserved. RC No. RC7765644</p>
+      <div style="display:flex;gap:24px;">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Form submit handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target;
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#22C55E';
+      setTimeout(() => {
+        btn.textContent = 'Send Message →';
+        btn.style.background = '';
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
