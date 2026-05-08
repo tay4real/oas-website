@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OAS Solutions — Building Digital Solutions That Transform Lives</title>
+  <title>OAS Ltd — Building Digital Solutions That Transform Lives</title>
   <meta name="description" content="Otubusin Ademuyiwa Solutions Ltd (OAS Ltd) builds digital products solving real Nigerian problems across transportation, education, real estate and more." />
-  <meta property="og:title" content="OAS Solutions — Building Digital Solutions That Transform Lives" />
+  <meta property="og:title" content="OAS Ltd — Building Digital Solutions That Transform Lives" />
   <meta property="og:description" content="Nigerian technology company building digital products that transform lives across Africa." />
   <meta property="og:url" content="https://oassolutions.com.ng" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -523,7 +523,6 @@
       position: relative;
       overflow: hidden;
       transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
       width: 100%;
     }
     .product-card:hover {
@@ -662,8 +661,14 @@
       color: var(--blue-light);
       text-decoration: none;
       transition: gap 0.2s;
+      position: relative;
+      z-index: 10;
+      padding: 10px 0;
+      cursor: pointer;
+      -webkit-tap-highlight-color: rgba(59,130,246,0.2);
     }
     .product-link:hover { gap: 12px; }
+    .product-link:active { opacity: 0.7; }
 
     .product-visual {
       position: relative;
@@ -1054,7 +1059,7 @@
   <nav id="navbar">
     <a href="#" class="nav-logo">
       <div class="logo-mark">OAS</div>
-      <span class="logo-text">OAS <span>Solutions</span></span>
+      <span class="logo-text">OAS <span>Ltd</span></span>
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -1219,7 +1224,7 @@
 
   <!-- WHY OAS -->
   <section class="why" id="why">
-    <div class="section-label">Why OAS Solutions</div>
+    <div class="section-label">Why OAS Ltd</div>
     <h2 class="section-title">Built by Nigerians,<br>for Nigerians</h2>
     <p class="section-subtitle">We understand the Nigerian context because we live it. Our products are designed for real infrastructure, real users, and real problems.</p>
     <div class="why-grid reveal">
@@ -1295,7 +1300,7 @@
       </div>
       <div class="contact-form">
         <h3>Send us a message</h3>
-        <form id="contact-form" action="https://formspree.io/f/mzdovqwl" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="form-group">
             <label>Full Name</label>
             <input type="text" name="name" placeholder="Your full name" required />
@@ -1341,7 +1346,7 @@
       <div class="footer-brand">
         <a href="#" class="nav-logo" style="text-decoration:none;">
           <div class="logo-mark">OAS</div>
-          <span class="logo-text" style="color:white;">OAS <span>Solutions</span></span>
+          <span class="logo-text" style="color:white;">OAS <span>Ltd</span></span>
         </a>
         <p>Building digital solutions that transform lives across Nigeria. Registered with the Corporate Affairs Commission (CAC), Nigeria. RC No. RC7765644</p>
         <p style="margin-top:12px;font-size:13px;">
@@ -1362,18 +1367,18 @@
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#about">About OAS Solutions</a></li>
+          <li><a href="#about">About OAS Ltd</a></li>
           <li><a href="#why">Why OAS</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Otubusin Ademuyiwa Solutions Ltd. All rights reserved. RC No. RC7765644</p>
       <div style="display:flex;gap:24px;">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Use</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
       </div>
     </div>
   </footer>
